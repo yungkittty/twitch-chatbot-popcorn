@@ -1,3 +1,4 @@
+import axios from "axios";
 import React from "react";
 import { faSignInAlt } from "@fortawesome/free-solid-svg-icons";
 import { withRouter } from "react-router-dom";
@@ -7,18 +8,15 @@ import SignInButton from "./components/sign-in-button";
 import AppContext from "../../contexts/app-context";
 
 const SignIn = ({ history }) => {
-  const { setWatcherId } = React.useContext(AppContext);
-
   const [formValue, setFormValue] = React.useState("");
 
+  const { setWatcherId } = React.useContext(AppContext);
+
   const onButtonClick = () => {
-    require("axios")
-      // eslint-disable-line
+    axios
       .post(`/api/watchers/${formValue}`)
-      .then(response => {
-        setWatcherId(response.data.watcherId);
-        history.push("/");
-      })
+      .then(response => setWatcherId(response.data.watcherId))
+      .then(() => history.push("/"))
       .catch(() => {});
   };
 
@@ -36,7 +34,7 @@ const SignIn = ({ history }) => {
           // eslint-disable-line
           buttonIcon={faSignInAlt}
           buttonTitle="Connection"
-          buttonColor="#00CAFF"
+          buttonColor="#00caff"
           onButtonClick={onButtonClick}
         />
       </div>

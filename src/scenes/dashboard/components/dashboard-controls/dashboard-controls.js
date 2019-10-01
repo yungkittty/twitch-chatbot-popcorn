@@ -8,6 +8,11 @@ import AppForm from "../../../../components/app-form";
 import AppContext from "../../../../contexts/app-context";
 
 const DashboardControls = props => {
+  const watcherRef = React.useRef();
+
+  const [watcherExpire, setWatcherExpire] = React.useState(30);
+  const [watcherCount, setWatcherCount] = React.useState(3);
+
   const {
     // eslint-disable-line
     watcherId,
@@ -15,10 +20,6 @@ const DashboardControls = props => {
     setWatcherStatus,
     setWatcherMetrics
   } = React.useContext(AppContext);
-
-  const watcherRef = React.useRef();
-  const [watcherExpire, setWatcherExpire] = React.useState(30);
-  const [watcherCount, setWatcherCount] = React.useState(3);
 
   const onWatcher = () => {
     axios
@@ -60,7 +61,6 @@ const DashboardControls = props => {
         buttonTitle=""
         buttonColor="#00caff"
         onButtonClick={onButtonPlayClick}
-        // Lire le chat
       />
       <AppButton
         // eslint-disable-line
@@ -70,7 +70,6 @@ const DashboardControls = props => {
         buttonColor="#ff485d"
         buttonDisabled={watcherStatus}
         onButtonClick={onButtonInitClick}
-        // Réinitialiser la session
       />
       <AppSectionTitle>
         {/* eslint-disable-line */}
@@ -81,7 +80,7 @@ const DashboardControls = props => {
         formType="number"
         formTitle="Durée d'interprétation des messages (en secondes) :"
         formValue={watcherExpire}
-        formDisabled={setWatcherStatus}
+        formDisabled={watcherStatus}
         onFormValueChange={event => setWatcherExpire(event.target.value)}
       />
       <AppForm
@@ -89,7 +88,7 @@ const DashboardControls = props => {
         formType="number"
         formTitle="Nombre de lignes du classement :"
         formValue={watcherCount}
-        formDisabled={setWatcherStatus}
+        formDisabled={watcherStatus}
         onFormValueChange={event => setWatcherCount(event.target.value)}
       />
     </DashboardContainer>

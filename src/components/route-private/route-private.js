@@ -2,11 +2,7 @@ import React from "react";
 import { Route, Redirect } from "react-router-dom";
 import AppContext from "../../contexts/app-context";
 
-const RoutePrivate = ({
-  // eslint-disable-line
-  component: Component,
-  ...others
-}) => {
+const RoutePrivate = ({ component: Component, ...others }) => {
   const { watcherId } = React.useContext(AppContext);
   return (
     <Route

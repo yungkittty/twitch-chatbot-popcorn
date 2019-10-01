@@ -11,6 +11,7 @@ const ButtonContainer = styled.button.attrs(({ buttonDisabled }) => ({ disabled:
       flex-direction: row;
       align-items: center;
       height: 40px;
+      min-height: 40px;
       box-sizing: border-box;
       margin-bottom: 10px;
       padding: 0px 10px;

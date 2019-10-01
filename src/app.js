@@ -13,17 +13,18 @@ const App = () => {
   const [watcherId, setWatcherId] = React.useState("");
   const [watcherStatus, setWatcherStatus] = React.useState(false);
   const [watcherMetrics, setWatcherMetrics] = React.useState({});
+
+  const watcherValues = {
+    watcherId,
+    watcherStatus,
+    watcherMetrics,
+    setWatcherId,
+    setWatcherStatus,
+    setWatcherMetrics
+  };
+
   return (
-    <AppContext.Provider
-      value={{
-        watcherId,
-        watcherStatus,
-        watcherMetrics,
-        setWatcherId,
-        setWatcherStatus,
-        setWatcherMetrics
-      }}
-    >
+    <AppContext.Provider value={watcherValues}>
       <AppContainer>
         <Router>
           <Switch>
