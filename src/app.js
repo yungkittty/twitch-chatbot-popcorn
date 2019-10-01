@@ -1,5 +1,5 @@
 import React from "react";
-import { BrowserRouter as Router, Route } from "react-router-dom";
+import { HashRouter as Router, Switch, Route } from "react-router-dom";
 import AppContext from "./contexts/app-context";
 import AppContainer from "./components/app-container";
 import RoutePrivate from "./components/route-private";
@@ -26,8 +26,10 @@ const App = () => {
     >
       <AppContainer>
         <Router>
-          <RoutePrivate exact path="/" component={Dashboard} />
-          <Route exact path="/sign-in" component={SignIn} />
+          <Switch>
+            <RoutePrivate exact path="/" component={Dashboard} />
+            <Route exact path="/sign-in" component={SignIn} />
+          </Switch>
         </Router>
       </AppContainer>
     </AppContext.Provider>

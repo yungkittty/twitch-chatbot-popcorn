@@ -1,14 +1,12 @@
 import React from "react";
 import { faSignInAlt } from "@fortawesome/free-solid-svg-icons";
-import { useHistory } from "react-router-dom";
+import { withRouter } from "react-router-dom";
 import SignInContainer from "./components/sign-in-container";
 import SignInForm from "./components/sign-in-form";
 import SignInButton from "./components/sign-in-button";
 import AppContext from "../../contexts/app-context";
 
-const SignIn = () => {
-  const history = useHistory();
-
+const SignIn = ({ history }) => {
   const { setWatcherId } = React.useContext(AppContext);
 
   const [formValue, setFormValue] = React.useState("");
@@ -46,4 +44,4 @@ const SignIn = () => {
   );
 };
 
-export default SignIn;
+export default withRouter(SignIn);
