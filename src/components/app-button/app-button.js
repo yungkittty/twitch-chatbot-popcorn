@@ -5,10 +5,11 @@ import ButtonTitle from "./components/button-title";
 
 const AppButton = ({
   // eslint-disable-line
-  buttonTitle,
   buttonIcon,
+  buttonTitle,
   buttonColor,
   buttonDisabled,
+  onButtonClick,
   ...others
 }) => (
   <ButtonContainer
@@ -16,13 +17,14 @@ const AppButton = ({
     {...others}
     buttonColor={buttonColor}
     buttonDisabled={buttonDisabled}
+    onClick={onButtonClick}
   >
     <ButtonIcon
       // eslint-disable-line
       buttonIcon={buttonIcon}
       buttonColor={buttonColor}
       buttonDisabled={buttonDisabled}
-      size="lg"
+      size="sm"
     />
     <ButtonTitle
       // eslint-disable-line

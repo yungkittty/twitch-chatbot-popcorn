@@ -7,7 +7,8 @@ const AppContainer = styled.div`
   height: 100vh;
   box-sizing: border-box;
   padding: 0px 80px;
-  background-color: #0c2531;
+  background-color: #0e3344;
+  overflow: hidden;
 `;
 
 export default AppContainer;

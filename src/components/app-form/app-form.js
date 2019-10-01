@@ -9,6 +9,7 @@ const AppForm = ({
   formTitle,
   formPlaceholder,
   formValue,
+  formDisabled,
   onFormValueChange,
   ...others
 }) => (
@@ -22,6 +23,7 @@ const AppForm = ({
       type={formType}
       placeholder={formPlaceholder}
       value={formValue}
+      disabled={formDisabled}
       onChange={onFormValueChange}
     />
   </FormContainer>
