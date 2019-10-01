@@ -11,6 +11,7 @@ const createAppWindow = () => {
   if (process.env.NODE_ENV !== "development") {
     appWindowUrl = `file://${path.join(__dirname, "../build/index.html")}`;
   } else {
+    appWindow.webContents.openDevTools();
     appWindowUrl = "http://localhost:3000";
   }
   appWindow.loadURL(appWindowUrl);

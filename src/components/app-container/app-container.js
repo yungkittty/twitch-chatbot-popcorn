@@ -5,8 +5,9 @@ const AppContainer = styled.div`
   flex-direction: column;
   width: 100vw;
   height: 100vh;
-  padding: 0px;
-  background-color: red;
+  box-sizing: border-box;
+  padding: 0px 80px;
+  background-color: #0c2531;
 `;
 
 export default AppContainer;
