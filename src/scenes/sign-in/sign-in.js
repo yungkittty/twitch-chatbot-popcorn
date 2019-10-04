@@ -1,21 +1,23 @@
-import axios from "axios";
 import React from "react";
 import { faSignInAlt } from "@fortawesome/free-solid-svg-icons";
+import axios from "axios";
 import { withRouter } from "react-router-dom";
 import SignInContainer from "./components/sign-in-container";
 import SignInForm from "./components/sign-in-form";
 import SignInButton from "./components/sign-in-button";
 import AppContext from "../../contexts/app-context";
 
-const SignIn = ({ history }) => {
-  const [formValue, setFormValue] = React.useState("");
+const SignIn = props => {
+  const { history } = props;
 
   const { setWatcherId } = React.useContext(AppContext);
 
+  const [userId, setUserId] = React.useState("");
+
   const onButtonClick = () => {
     axios
-      .post(`/api/watchers/${formValue}`)
-      .then(response => setWatcherId(response.data.watcherId))
+      .post(`/api/watchers/${userId}`)
+      .then(reponse => setWatcherId(reponse.data.watcherId))
       .then(() => history.push("/"))
       .catch(() => {});
   };
@@ -27,13 +29,13 @@ const SignIn = ({ history }) => {
           // eslint-disable-line
           formType="text"
           formTitle="Saisir une clé d'accès (UUID) :"
-          formValue={formValue}
-          onFormValueChange={event => setFormValue(event.target.value)}
+          formValue={userId}
+          onFormValueChange={event => setUserId(event.target.value)}
         />
         <SignInButton
           // eslint-disable-line
           buttonIcon={faSignInAlt}
-          buttonTitle="Connection"
+          buttonTitle="Connexion"
           buttonColor="#00caff"
           onButtonClick={onButtonClick}
         />

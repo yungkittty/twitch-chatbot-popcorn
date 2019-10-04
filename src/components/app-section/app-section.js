@@ -2,6 +2,7 @@ import styled from "styled-components";
 
 const AppSection = styled.div`
   display: flex;
+  position: relative;
   flex-direction: column;
   height: 100%;
   box-sizing: border-box;

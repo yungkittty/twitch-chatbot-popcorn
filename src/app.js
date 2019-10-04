@@ -2,6 +2,7 @@ import React from "react";
 import { HashRouter as Router, Switch, Route } from "react-router-dom";
 import AppContext from "./contexts/app-context";
 import AppContainer from "./components/app-container";
+import AppHeader from "./components/app-header";
 import RoutePrivate from "./components/route-private";
 import SignIn from "./scenes/sign-in";
 import Dashboard from "./scenes/dashboard";
@@ -26,6 +27,7 @@ const App = () => {
   return (
     <AppContext.Provider value={watcherValues}>
       <AppContainer>
+        <AppHeader />
         <Router>
           <Switch>
             <RoutePrivate exact path="/" component={Dashboard} />

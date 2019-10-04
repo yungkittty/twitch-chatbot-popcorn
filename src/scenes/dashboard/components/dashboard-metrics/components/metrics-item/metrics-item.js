@@ -6,6 +6,7 @@ import ItemOccurrence from "./components/item-occurrence";
 const MetricsItem = ({
   // eslint-disable-line
   itemRank,
+  itemStatus,
   itemData,
   itemOccurrences,
   itemOccurrencesSum
@@ -14,6 +15,7 @@ const MetricsItem = ({
     <ItemRank itemRank={itemRank} />
     <ItemOccurrence
       // eslint-disable-line
+      itemStatus={itemStatus}
       itemData={itemData}
       itemOccurrences={itemOccurrences}
       itemOccurrencesSum={itemOccurrencesSum}

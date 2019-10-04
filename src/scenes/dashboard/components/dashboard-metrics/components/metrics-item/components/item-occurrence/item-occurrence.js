@@ -6,6 +6,7 @@ import OccurrenceSubtitle from "./components/occurrence-subtitle";
 
 const ItemOccurrence = ({
   // eslint-disable-line
+  itemStatus,
   itemData,
   itemOccurrences,
   itemOccurrencesSum
@@ -13,8 +14,12 @@ const ItemOccurrence = ({
   const itemOccurrencesRate = Math.round((100 * itemOccurrences) / itemOccurrencesSum);
   return (
     <OccurrenceContainer>
-      <OccurrenceOverlay itemOccurrencesRate={itemOccurrencesRate} />
-      <OccurrenceTitle>
+      <OccurrenceOverlay
+        // eslint-disable-line
+        itemStatus={itemStatus}
+        itemOccurrencesRate={itemOccurrencesRate}
+      />
+      <OccurrenceTitle itemStatus={itemStatus}>
         {/* eslint-disable-line */}
         {`"${itemData}"`}
       </OccurrenceTitle>
