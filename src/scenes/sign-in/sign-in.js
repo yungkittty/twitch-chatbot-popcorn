@@ -17,7 +17,7 @@ const SignIn = props => {
   const onButtonClick = () => {
     axios
       .post(`/api/watchers/${userId}`)
-      .then(reponse => setWatcherId(reponse.data.watcherId))
+      .then(response => setWatcherId(response.data.watcherId))
       .then(() => history.push("/"))
       .catch(() => {});
   };
